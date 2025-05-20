@@ -63,7 +63,7 @@ const DashBoardNavbar = () => {
           className="rounded-full border-2 border-gray-600"
         />
         <span className="text-xl font-bold">{userData}</span>
-        <button className="text-red-700 font-bold">Logout</button>
+        <button onClick={handleLogout} className="text-red-700 font-bold">Logout</button>
       </div>
 
   
