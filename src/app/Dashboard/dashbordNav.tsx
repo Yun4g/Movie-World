@@ -10,6 +10,7 @@ import axios from 'axios';
 const DashBoardNavbar = () => {
   const [toggle, setToggle] = useState(false);
   const [userData, setUserData] = useState('');
+  console.log(userData)
   const logout = useMovieStore((state) => state.logout);
   const router = useRouter();
 
@@ -91,7 +92,7 @@ const DashBoardNavbar = () => {
             height={40}
             className="rounded-full border-2 border-gray-400"
           />
-          <span className="text-lg font-semibold">{userData}</span>
+          <span className="text-lg text-cyan-100 font-semibold">{userData}</span>
           <button onClick={handleLogout} className="text-red-700 cursor-pointer font-bold">
             Logout
           </button>
