@@ -20,7 +20,7 @@ export default function Movie2() {
       <div className="relative overflow-hidden">
         {movieData.length > 0 ? (
           <div className="flex gap-4 sm:gap-5 md:gap-6 overflow-x-auto hide-scrollbar px-1 py-3 sm:px-2 sm:py-4">
-            {movieData.map((movie: any) => (
+            {movieData.map((movie) => (
               <div
                 key={movie.imdbID}
                 className="min-w-[160px] sm:min-w-[200px] md:min-w-[220px] lg:min-w-[240px] bg-white/5 rounded-xl shadow-md backdrop-blur-md transition-transform duration-300 hover:scale-105 hover:shadow-xl"
