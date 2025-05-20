@@ -48,7 +48,7 @@ export default function LoginPage() {
         console.log('Login failed', res.data);
         setErrors({ form: res.data.message || 'An error occurred' }); 
       }
-    } catch (error: any) {
+    } catch (error:  any) {
       setErrors({ form: error.response?.data.message || 'An error occurred' });
       console.error('Login failed', error);    
     } finally {
