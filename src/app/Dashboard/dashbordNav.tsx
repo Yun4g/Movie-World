@@ -53,7 +53,7 @@ const DashBoardNavbar = () => {
         </h1>
       </Link>
 
-      {/* Desktop Menu */}
+     
       <div className="hidden md:flex items-center gap-3">
         <Image
           src="/default-profile.png"
@@ -66,7 +66,7 @@ const DashBoardNavbar = () => {
         <button className="text-red-700 font-bold">Logout</button>
       </div>
 
-      {/* Mobile Toggle Button */}
+  
       <div className="md:hidden">
         <button
           onClick={handleToggle}

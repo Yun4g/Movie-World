@@ -4,8 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function Movie2() {
-  const movieData = useMovieStore((state: any) => state.movieData2);
-  const fetchData = useMovieStore((state: any) => state.fetchMovieData2);
+  const movieData = useMovieStore((state) => state.movieData2);
+  const fetchData = useMovieStore((state) => state.fetchMovieData2);
 
   useEffect(() => {
     fetchData();

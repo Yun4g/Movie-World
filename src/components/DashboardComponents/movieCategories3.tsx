@@ -1,11 +1,13 @@
 import { useEffect } from "react";
 import useMovieStore from "@/app/store/movieDataStore";
+
 import Link from "next/link";
 import Image from "next/image";
 
 export default function Movie2() {
-  const movieData = useMovieStore((state: any) => state.movieData3);
-  const fetchData = useMovieStore((state: any) => state.fetchMovieData3);
+ const movieData = useMovieStore((state) => state.movieData3);
+  const fetchData = useMovieStore((state) => state.fetchMovieData3);
+
 
   useEffect(() => {
     fetchData();

@@ -2,14 +2,22 @@
 import { create } from "zustand";
 import axios from "axios";
 
-interface Movie {
+
+
+export interface Movie {
   Title: string;
   Year: string;
   imdbID: string;
   Poster: string;
 }
 
-interface MovieType {
+export interface User {
+  Id: string;
+  username: string;
+  email: string;
+}
+
+export interface MovieType {
   movieData: Movie[];
   movieData2: Movie[];
   movieData3: Movie[];
@@ -18,7 +26,7 @@ interface MovieType {
   fetchMovieData2: () => Promise<void>;
   fetchMovieData3: () => Promise<void>;
   fetchMovieData4: () => Promise<void>;
-  user: any;
+  user: User | null;
   token: string | null;
   logout: () => void;
 }
