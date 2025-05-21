@@ -12,15 +12,15 @@ function MovieDashBoard() {
 
   const [selectedYear, setSelectedYear] = useState<number | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>('');
-  const [loading, setLoading] = useState(true);
+
 
   const bgImages = ['/imageMovie1.jpg', '/imageMovie2.jpg'];
   const [backgroundImage, setBackgroundImage] = useState<string>(bgImages[0]);
 
   useEffect(() => {
-    setLoading(true);
+ 
     fetchData(searchTerm).then(() => {
-      setLoading(false);
+    
       setSelectedYear(null);
     });
   }, [fetchData, searchTerm]);
@@ -65,9 +65,7 @@ function MovieDashBoard() {
             {filteredMovies.map((movie) => (
               <div key={movie.imdbID}>
                 <Link
-                  href={`https://www.youtube.com/results?search_query=${encodeURIComponent(movie.Title)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/Dashboard/${movie.imdbID}"
                 >
                   <h3 className="text-sm mx-2 mt-2 px-2 break-words text-blue-300">
                     {movie.Title}

@@ -40,3 +40,8 @@ State Management (optional): Zustand,
 
 Database (for users): Mongodb
 
+
+<!-- 
+  href={`https://www.youtube.com/results?search_query=${encodeURIComponent(movie.Title)}`}
+                  target="_blank"
+                  rel="noopener noreferrer" -->

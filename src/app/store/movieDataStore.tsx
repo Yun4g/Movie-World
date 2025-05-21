@@ -57,6 +57,7 @@ const useMovieStore = create<MovieType>((set) => ({
       console.error("Error fetching movies:", error);
     }
   },
+  
 
   fetchMovieData2: async () => {
     try {

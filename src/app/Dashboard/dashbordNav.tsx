@@ -24,18 +24,21 @@ const DashBoardNavbar = () => {
     alert('Logout successfully');
   };
 
-  useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const res = await axios.get('/api/usersData');
-        setUserData(res.data.username);
-      } catch (error) {
-        console.error('Error fetching user data:', error);
-      }
-    };
 
-    fetchUserData();
-  }, []);
+useEffect(() => {
+  const fetchUserData = async () => {
+    try {
+      const userId = localStorage.getItem("userId"); 
+
+      const res = await axios.get(`/api/usersData?id=${userId}`);
+      setUserData(res.data.username);
+    } catch (error) {
+      console.error('Error fetching user data:', error);
+    }
+  };
+
+  fetchUserData();
+}, []);
 
   return (
     <nav className="bg-gray-900 text-white shadow-md py-2 px-4 flex justify-between items-center relative">
