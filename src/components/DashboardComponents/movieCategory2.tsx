@@ -40,6 +40,8 @@ export default function Movie2() {
                           : "/placeholder.png"
                       }
                       alt={movie.Title}
+                         width={300}
+                        height={300}
                       fill
                       className="rounded-t-xl object-cover"
                     />

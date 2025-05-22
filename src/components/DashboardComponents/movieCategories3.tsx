@@ -42,6 +42,7 @@ export default function Movie2() {
                           : "/placeholder.png"
                       }
                       alt={movie.Title}
+                   c
                       fill
                       className="rounded-t-xl object-cover"
                     />

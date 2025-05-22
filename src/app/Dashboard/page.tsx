@@ -47,7 +47,7 @@ function MovieDashBoard() {
         }}
       >
         
-        <div className="absolute inset-0 bg-black/70 z-0" />
+        <div className="absolute inset-0 bg-black/40 z-0" />
 
       
         <div className="relative z-10 w-[310px] md:w-[510px] mb-4">
@@ -65,8 +65,7 @@ function MovieDashBoard() {
             {filteredMovies.map((movie) => (
               <div key={movie.imdbID}>
                 <Link
-                  href="/Dashboard/${movie.imdbID}"
-                >
+                  href={`/Dashboard/${movie.imdbID}`}>       
                   <h3 className="text-sm mx-2 mt-2 px-2 break-words text-blue-300">
                     {movie.Title}
                   </h3>

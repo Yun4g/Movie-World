@@ -10,7 +10,9 @@ import axios from 'axios';
 const DashBoardNavbar = () => {
   const [toggle, setToggle] = useState(false);
   const [userData, setUserData] = useState('');
-  console.log(userData)
+  const [loading, setLoading] = useState(true);
+  console.log(userData);
+  
   const logout = useMovieStore((state) => state.logout);
   const router = useRouter();
 
@@ -18,38 +20,57 @@ const DashBoardNavbar = () => {
     setToggle(!toggle);
   };
 
-  const handleLogout = () => {
-    logout();
-    router.push('/login');
-    alert('Logout successfully');
-  };
-
-
-useEffect(() => {
-  const fetchUserData = async () => {
+  const handleLogout = async () => {
     try {
-      const userId = localStorage.getItem("userId"); 
-
-      const res = await axios.get(`/api/usersData?id=${userId}`);
-      setUserData(res.data.username);
+    
+      await axios.post('/api/logout');
+      logout();
+      router.push('/login');
+      alert('Logout successfully');
     } catch (error) {
-      console.error('Error fetching user data:', error);
+      console.error('Logout error:', error);
+      logout();
+      router.push('/login');
     }
   };
 
-  fetchUserData();
-}, []);
+  useEffect(() => {
+    const fetchUserData = async () => {
+      const userId = localStorage.getItem('userId');
+
+      try {
+        const res = await axios.get(`/api/usersData?id=${userId}` );
+        
+        if (res.data && res.data.username) {
+          setUserData(res.data.username);
+        } else {
+          console.warn("Username not found in response");
+          setUserData('Unknown User');
+        }
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+        
+       
+      
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchUserData();
+
+ 
+  }, [router]);
 
   return (
     <nav className="bg-gray-900 text-white shadow-md py-2 px-4 flex justify-between items-center relative">
-      {/* Logo */}
+ 
       <Link href="/" className="flex flex-col justify-center items-center gap-1">
         <h1 className="text-2xl md:text-3xl text-red-500 font-bold font-mono">
           MovieWorld
         </h1>
       </Link>
 
-      {/* Desktop menu */}
+
       <div className="hidden md:flex items-center gap-4">
         <Image
           src="/default-profile.png"
@@ -58,7 +79,9 @@ useEffect(() => {
           height={40}
           className="rounded-full border-2 border-gray-600"
         />
-        <span className="text-xl font-bold">{userData}</span>
+        <span className="text-xl font-bold">
+          {loading ? 'Loading...' : userData || 'Guest'}
+        </span>
         <button onClick={handleLogout} className="text-red-700 font-bold">
           Logout
         </button>
@@ -95,7 +118,9 @@ useEffect(() => {
             height={40}
             className="rounded-full border-2 border-gray-400"
           />
-          <span className="text-lg text-cyan-100 font-semibold">{userData}</span>
+          <span className="text-lg text-cyan-100 font-semibold">
+            {loading ? 'Loading...' : userData || 'Guest'}
+          </span>
           <button onClick={handleLogout} className="text-red-700 cursor-pointer font-bold">
             Logout
           </button>
