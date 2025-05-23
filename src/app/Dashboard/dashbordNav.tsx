@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState,  } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import useMovieStore from '../store/movieDataStore';
@@ -9,9 +9,7 @@ import axios from 'axios';
 
 const DashBoardNavbar = () => {
   const [toggle, setToggle] = useState(false);
-  const [userData, setUserData] = useState('');
-  const [loading, setLoading] = useState(true);
-  console.log(userData);
+
   
   const logout = useMovieStore((state) => state.logout);
   const router = useRouter();
@@ -79,9 +77,7 @@ const DashBoardNavbar = () => {
           height={40}
           className="rounded-full border-2 border-gray-600"
         />
-        <span className="text-xl font-bold">
-          {loading ? 'Loading...' : userData || 'Guest'}
-        </span>
+      
         <button onClick={handleLogout} className="text-red-700 font-bold">
           Logout
         </button>
@@ -118,9 +114,7 @@ const DashBoardNavbar = () => {
             height={40}
             className="rounded-full border-2 border-gray-400"
           />
-          <span className="text-lg text-cyan-100 font-semibold">
-            {loading ? 'Loading...' : userData || 'Guest'}
-          </span>
+       
           <button onClick={handleLogout} className="text-red-700 cursor-pointer font-bold">
             Logout
           </button>

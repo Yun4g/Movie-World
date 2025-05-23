@@ -44,6 +44,7 @@ export default function LoginPage() {
       if (res.status >= 200 && res.status < 300) {
         console.log('Login successful', res.data);
         router.push('/Dashboard');
+          setErrors({});
        localStorage.setItem('userId', res.data.user.id);
        localStorage.setItem('token', res.data.token);
      
