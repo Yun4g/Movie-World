@@ -85,7 +85,10 @@ export default function MovieId() {
     <div className="">
 
       <div className="m-4 sm:m-6 md:m-9 bg-gradient-to-br from-[#1a1a2e] to-[#16213e] p-2 rounded-3xl shadow-2xl shadow-gray-900/50">
-       <Link href={`/Dashboard/`} className="text-base text-white  my-4"> Back to Dashbord   </Link>
+         <div className="flex flex-col items-center justify-center">
+             <Link href={`/Dashboard/`} className="text-base text-blue-800  my-4"> Back to Dashbord   </Link>
+         </div>
+       
        
         <iframe
           className="w-full h-[200px] md:h-[500px] rounded-lg shadow-lg"
