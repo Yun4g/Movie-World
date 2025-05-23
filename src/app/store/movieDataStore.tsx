@@ -14,6 +14,7 @@ export interface Movie {
   Released : string;
   Genre : string;
   Plot : string;
+  Trailer : string;
 }
 
 export interface User {

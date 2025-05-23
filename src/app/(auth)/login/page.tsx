@@ -123,7 +123,7 @@ export default function LoginPage() {
            Login to Movie World
           </motion.h2>
           {error.form && (
-            <p className="text-red-500 text-sm mt-1">{error.form}</p>
+            <p className="bg-red-500  text-red-900 p-2 w-full text-center text-lg mt-1">{error.form}</p>
           )}
 
           <motion.div variants={itemVariants}>

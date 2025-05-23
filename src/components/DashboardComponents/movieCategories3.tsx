@@ -28,11 +28,7 @@ export default function Movie2() {
                 className="min-w-[160px] sm:min-w-[200px] md:min-w-[220px] lg:min-w-[240px] bg-white/5 rounded-xl shadow-md backdrop-blur-md transition-transform duration-300 hover:scale-105 hover:shadow-xl"
               >
                 <Link
-                  href={`https://www.youtube.com/results?search_query=${encodeURIComponent(
-                    movie.Title
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                   href={`/Dashboard/${movie.imdbID}`}
                 >
                   <div className="w-full h-[240px] sm:h-[260px] md:h-[280px] lg:h-[300px] relative">
                     <Image
