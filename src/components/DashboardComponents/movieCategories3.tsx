@@ -41,9 +41,9 @@ export default function Movie2() {
                           ? movie.Poster
                           : "/placeholder.png"
                       }
+                      width={300}
+                      height={300}
                       alt={movie.Title}
-                   c
-                      fill
                       className="rounded-t-xl object-cover"
                     />
                   </div>

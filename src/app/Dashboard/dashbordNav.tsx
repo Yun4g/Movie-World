@@ -34,32 +34,32 @@ const DashBoardNavbar = () => {
     }
   };
 
-  useEffect(() => {
-    const fetchUserData = async () => {
-      const userId = localStorage.getItem('userId');
+  // useEffect(() => {
+  //   // const fetchUserData = async () => {
+      
 
-      try {
-        const res = await axios.get(`/api/usersData?id=${userId}` );
+  //     try {
+  //       const res = await axios.get('/api/usersData');
         
-        if (res.data && res.data.username) {
-          setUserData(res.data.username);
-        } else {
-          console.warn("Username not found in response");
-          setUserData('Unknown User');
-        }
-      } catch (error) {
-        console.error('Error fetching user data:', error);
+  //       if (res.data && res.data.username) {
+  //         setUserData(res.data.username);
+  //       } else {
+  //         console.warn("Username not found in response");
+  //         setUserData('Unknown User');
+  //       }
+  //     } catch (error) {
+  //       console.error('Error fetching user data:', error);
         
        
       
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchUserData();
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+  //   fetchUserData();
 
  
-  }, [router]);
+  // }, [router]);
 
   return (
     <nav className="bg-gray-900 text-white shadow-md py-2 px-4 flex justify-between items-center relative">
@@ -87,7 +87,7 @@ const DashBoardNavbar = () => {
         </button>
       </div>
 
-      {/* Hamburger menu (mobile) */}
+   
       <div className="md:hidden">
         <button onClick={handleToggle} className="flex flex-col justify-center items-center w-8 h-8">
           <span
@@ -108,7 +108,7 @@ const DashBoardNavbar = () => {
         </button>
       </div>
 
-      {/* Mobile menu dropdown */}
+      
       {toggle && (
         <div className="absolute top-16 left-0 w-full bg-gray-800 text-white flex flex-col items-center gap-4 py-4 rounded-b-lg z-50 md:hidden">
           <Image

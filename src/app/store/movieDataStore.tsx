@@ -9,6 +9,11 @@ export interface Movie {
   Year: string;
   imdbID: string;
   Poster: string;
+  Director : string;
+  Actors : string;
+  Released : string;
+  Genre : string;
+  Plot : string;
 }
 
 export interface User {
@@ -51,7 +56,7 @@ const useMovieStore = create<MovieType>((set) => ({
         set({ movieData: response.data.Search });
       } else {
         set({ movieData: [] });
-        console.error("Error fetching movies:", response.data.Error);
+        console.log("Error fetching movies:", response.data.Error);
       }
     } catch (error) {
       console.error("Error fetching movies:", error);

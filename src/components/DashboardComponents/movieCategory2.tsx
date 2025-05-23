@@ -35,14 +35,13 @@ export default function Movie2() {
                   <div className="w-full h-[240px] sm:h-[260px] md:h-[280px] lg:h-[300px] relative">
                     <Image
                       src={
-                        movie.Poster !== "N/A"
-                          ? movie.Poster
-                          : "/placeholder.png"
+                        movie.Poster !== "N/A" ? movie.Poster
+                          : "https://via.placeholder.com/300x450?text=No+Image"
                       }
                       alt={movie.Title}
                          width={300}
                         height={300}
-                      fill
+                      
                       className="rounded-t-xl object-cover"
                     />
                   </div>
