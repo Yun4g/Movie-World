@@ -39,7 +39,7 @@ export default function MovieId() {
     const response = await axios.get("https://www.googleapis.com/youtube/v3/search", {
       params: {
         part: "snippet",
-        q: `${title}`,
+        q: `${title} Movie Full`,
         key: YOUTUBE_API_KEY,
         maxResults: 1,
         type: "video"
@@ -95,6 +95,7 @@ export default function MovieId() {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         ></iframe>
+           <p className=" text-sm text-red-700">  {movieData.Title}</p> 
                       <Link href={`https://www.youtube.com/results?search_query=${encodeURIComponent( movieData.Title )}`}
                           target="_blank"
                           rel="noopener noreferrer"
