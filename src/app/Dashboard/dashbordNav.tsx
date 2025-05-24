@@ -1,6 +1,6 @@
 'use client';
 
-import { useState,  } from 'react';
+import { useState, useEffect  } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import useMovieStore from '../store/movieDataStore';
@@ -9,6 +9,8 @@ import axios from 'axios';
 
 const DashBoardNavbar = () => {
   const [toggle, setToggle] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [userData, setUserData] = useState<string | null>(null);
 
   
   const logout = useMovieStore((state) => state.logout);
@@ -20,11 +22,10 @@ const DashBoardNavbar = () => {
 
   const handleLogout = async () => {
     try {
-    
+
       await axios.post('/api/logout');
       logout();
       router.push('/login');
-      alert('Logout successfully');
     } catch (error) {
       console.error('Logout error:', error);
       logout();
@@ -32,32 +33,33 @@ const DashBoardNavbar = () => {
     }
   };
 
-  // useEffect(() => {
-  //   // const fetchUserData = async () => {
+  useEffect(() => {
+    const fetchUserData = async () => {
       
-
-  //     try {
-  //       const res = await axios.get('/api/usersData');
-        
-  //       if (res.data && res.data.username) {
-  //         setUserData(res.data.username);
-  //       } else {
-  //         console.warn("Username not found in response");
-  //         setUserData('Unknown User');
-  //       }
-  //     } catch (error) {
-  //       console.error('Error fetching user data:', error);
+    setLoading(true);
+      const userId = localStorage.getItem('userId');
+      try {
+        const res = await axios.get('/api/usersData');
+         setLoading(true);
+        if (res.data && res.data.username) {
+          setUserData(res.data.username);
+        } else {
+          console.warn("Username not found in response");
+          setUserData('Unknown User');
+        }
+      } catch (error) {
+        console.error('Error fetching user data:', error);
         
        
       
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-  //   fetchUserData();
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchUserData();
 
  
-  // }, [router]);
+  }, [router]);
 
   return (
     <nav className="bg-gray-900 text-white shadow-md py-2 px-4 flex justify-between items-center relative">
@@ -77,6 +79,8 @@ const DashBoardNavbar = () => {
           height={40}
           className="rounded-full border-2 border-gray-600"
         />
+
+        <span className="text-white font-semibold">{loading ? 'Loading...' : userData}</span>
       
         <button onClick={handleLogout} className="text-red-700 font-bold">
           Logout
