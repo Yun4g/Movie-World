@@ -45,7 +45,8 @@ export default function LoginPage() {
         console.log('Login successful', res.data);
         router.push('/Dashboard');
           setErrors({});
-       localStorage.setItem('userId', res.data.user.id);
+       localStorage.setItem('userName', res.data.user.username);
+       console.log('User Name:', res.data.user.username);
        localStorage.setItem('token', res.data.token);
      
 

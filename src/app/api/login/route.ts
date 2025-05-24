@@ -36,21 +36,15 @@ export async function POST(req: Request) {
             email: existingUser.email,
           },
           token,
-        message: "Login successful",
-         success: true
+          message: "Login successful",
+          success: true
          },
       { status: 200 }
     );
-
     res.cookies.set("token", token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
-      path: "/",
     });
-
     return res;
-
   } catch (error) {
     console.error("Login error:", error);
     return NextResponse.json({ message: "Internal Server Error" }, { status: 500 });
