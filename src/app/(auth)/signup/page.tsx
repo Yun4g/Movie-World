@@ -109,7 +109,7 @@ export default function SignupPage() {
         variants={containerVariants}
       >
         <motion.form
-          className="bg-white/10 backdrop-blur-md p-3 md:p-10 rounded-2xl shadow-lg max-w-md w-full text-white space-y-6"
+          className="bg-white/10 backdrop-blur-md p-3 md:p-10 rounded-2xl shadow-lg w-[300px] md:w-[400px] text-white space-y-6"
           initial={{ scale: 0.95, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.5 }}
