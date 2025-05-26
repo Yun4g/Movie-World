@@ -33,7 +33,7 @@ export default function MovieId() {
       const response = await axios.get("https://www.googleapis.com/youtube/v3/search", {
         params: {
           part: "snippet",
-          q: `${title}`,
+          q: `${title} full movie`,
           key: YOUTUBE_API_KEY,
           maxResults: 1,
           type: "video",
