@@ -88,7 +88,7 @@ export default function MovieId() {
             ></iframe>
           </div>
         ) : (
-          <p className="text-center text-red-400">Trailer not available</p>
+          <p className="text-center text-red-400">Trailer not available </p>
         )}
 
         <p className="text-lg font-semibold text-red-500 mb-2 text-center">{movieData.Title}</p>
